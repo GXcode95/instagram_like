@@ -2,7 +2,8 @@ $size: 200px;
 $color: #d22cd8;
 $color2: rgb(255, 218, 170);
 $bgcolor: #fff;
-$textcolor: rgba(226, 134, 214, 0.753);
+$textcolor: rgb(255, 193, 239);
+$borderSize: 5%;
 .rotato-wrap {
     position: relative;
     height: $size;
@@ -81,16 +82,17 @@ $textcolor: rgba(226, 134, 214, 0.753);
 
 .rotato2:after{
     content: "MYGRAM";
-    height: 98%;
-    width: 98%;
+    height: calc(100% - $borderSize);
+    width: calc(100% - $borderSize);
     position: absolute;
     background-color: $bgcolor;
     border-radius: 5px;
-    top: 1%;
-    left: 1%;
+    top: calc($borderSize / 2);
+    left: calc($borderSize / 2);
     color: $textcolor;
     display: grid;
     place-items: center;
     font-size: 20px;
+    font-weight: 600;
     letter-spacing: 6px;
 }
