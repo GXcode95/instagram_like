@@ -1,28 +1,30 @@
 import React from 'react';
-import useFirestore from '../../hooks/useFirestore';
-import { Image } from 'cloudinary-react';
-import { motion } from 'framer-motion';
 import { Box } from '@mui/material';
 import './style.scss';
 import CloudImage from './CloudImage';
+import { motion } from 'framer-motion'
 
-const ImageGrid = ({ setSelectedImg }) => {
-  const { docs } = useFirestore("gallery")
+const ImageGrid = ({ setSelectedImg, imgList }) => {
+  
 
   return (
     <Box 
       sx={{ 
         width: "100%",
-        ml: "5%", mt: 3,
         display:"flex",
         flexWrap: "wrap",
         gap: 2,
         justifyContent: "center",
+        mt: 3
       }}
     >
-      {docs.map((doc) => (
-        <div onClick={ e => setSelectedImg(doc.cloudId)} >
-          <CloudImage id={`${doc.cloudId}`} key={doc.cloudId} />
+      {imgList.length > 0 && imgList.map((image) => (
+        <div 
+          key={image.cloudId}
+          className="img-wrap"
+          onClick={ e => setSelectedImg(image.cloudId) }
+        >
+          <CloudImage id={`${image.cloudId}`} key={image.cloudId} />
         </div>
       ))}
       <CloudImage />

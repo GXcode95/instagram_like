@@ -1,0 +1,29 @@
+.my-github {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  animation: look-at-me ease-in 0.3s infinite;
+}
+
+@keyframes look-at-me {
+  0% {
+    // top: 1em;
+    transform: translateY(0)
+  }
+  25% {
+    // top: 0.5em;
+    transform: translateY(-2%)
+  }
+  50% {
+    // top: 1em;
+    transform: translateY(0)
+  }
+  70% {
+    // top: 1.5em;
+    transform: translateY(2%)
+  }
+  100% {
+    // top: 1em;
+    transform: translateY(0)
+  }
+}

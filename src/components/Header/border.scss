@@ -1,0 +1,96 @@
+$size: 200px;
+$color: #d22cd8;
+$color2: rgb(255, 218, 170);
+$bgcolor: #fff;
+$textcolor: rgba(226, 134, 214, 0.753);
+.rotato-wrap {
+    position: relative;
+    height: $size;
+    width: $size;
+}
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate2{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.rotato{
+    height: $size;
+    width: $size;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    border-radius: 5px;
+    overflow: hidden;
+}
+.rotato:before{
+    content: "";
+    background-image: conic-gradient(
+        $color 20deg,
+        transparent 120deg
+    );
+    height: 150%;
+    width: 150%;
+    position: absolute;
+    left: -25%;
+    top: -25%;
+    animation: rotate 2.5s infinite linear;
+}
+
+
+
+////////////////////!
+
+
+.rotato2{
+    height: $size;
+    width: $size;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    border-radius: 5px;
+    overflow: hidden;
+}
+.rotato2:before{
+    content: "";
+    background-image: conic-gradient(
+        $color2 20deg,
+        transparent 120deg
+    );
+    height: 150%;
+    width: 150%;
+    position: absolute;
+    left: -25%;
+    top: -25%;
+    transform: rotate(0deg);
+    animation: rotate2 2.5s infinite linear;
+}
+
+.rotato2:after{
+    content: "MYGRAM";
+    height: 98%;
+    width: 98%;
+    position: absolute;
+    background-color: $bgcolor;
+    border-radius: 5px;
+    top: 1%;
+    left: 1%;
+    color: $textcolor;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    letter-spacing: 6px;
+}

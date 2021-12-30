@@ -10,16 +10,12 @@ const Modal = ({selectedImg, setSelectedImg}) => {
       setSelectedImg(null) 
   }
   return (
-    <motion.div className="backdrop" onClick={handleClick}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-
-    >
+    <div className="backdrop" onClick={handleClick}>
        <Image
         cloudName={process.env.REACT_APP_CLOUD_NAME}
         publicId={selectedImg}
       />
-    </motion.div>
+    </div>
   )
 }
 export default Modal
