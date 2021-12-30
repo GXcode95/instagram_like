@@ -1,5 +1,6 @@
 .img-wrap:hover {
-  transform:scale(1.06);
+  transform:scale(1.05);
+  opacity: 1;
   transition: 0.3s;
 }
 .img-wrap {
@@ -8,13 +9,14 @@
   align-items: center;
   transition: 0.3s;
   position: relative;
+  border: 1px solid rgb(187, 187, 187);
+  opacity: 0.9;
 }
 
 .img-wrap img {
   min-width:100%;
   min-height: 100%;
   top:0;
-  left: 0;
-  border: 1px solid black;
+  left: 0;  
 }
 

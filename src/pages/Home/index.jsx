@@ -7,7 +7,7 @@ import useFirestore from '../../hooks/useFirestore';
 import Header from 'components/Header'
 import Github from 'components/Github';
 import { Container } from '@mui/material'
-
+import { Typography  } from '@mui/material';
 
 const Home = () => {
   const [selectedImg, setSelectedImg] = React.useState(null)
@@ -37,6 +37,10 @@ const Home = () => {
       {selectedImg && 
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg}/>
       }
+
+      <Typography my={5} variant="h5" component="p" align="center">
+        Project réaliser par <a href="https://github.com/GXcode95">Grenouillet Xavier</a> avec react, firebase et cloudinary.
+      </Typography>
     </Container>
   )
 }

@@ -77,11 +77,11 @@ const ImageUploadFormCloudinary = ({setImgList, imgList}) => {
       {error && (
         <h4 style={{color:"red"}}>{error}</h4>
       )}
-      <Box padding="3em" sx={{ border: "3px dashed rgba(50, 50, 50, 0.300)" }}  {...getRootProps()} >
+      <Box padding="3em" sx={{ border: "3px dashed rgb(255, 193, 239)" }}  {...getRootProps()} >
         <input {...getInputProps()} />
         {isDragActive ?
-          <p style={{color: "rgba(50, 50, 50, 0.500)"}}>Clicker pour ajouter des fichier</p> :
-          <p style={{color: "rgba(50, 50, 50, 0.500)"}}>Glisser / déposer ou cliquer pour ajouter des fichiers</p>
+          <p style={{color: "rgba(248, 130, 219, 0.7)"}}>Clicker pour ajouter des fichier</p> :
+          <p style={{color: "rgba(248, 130, 219, 0.7)"}}>Glisser / déposer ou cliquer pour ajouter des fichiers</p>
         }
       </Box>
       <ImagesToUpload files={files} setFiles={setFiles} />

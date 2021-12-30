@@ -5,7 +5,7 @@ import './style.scss'
 const Github = () => {
   return (
     <a href="https://github.com/GXcode95/instagram_like" className='my-github'>
-      <GitHubIcon sx={{fontSize:"50px", color: "black"}}/>      
+      <GitHubIcon sx={{fontSize:"50px", color: "rgba(0,0,0,0.7)"}}/>      
     </a>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, IconButton } from '@mui/material';
+import { Box, Card,  IconButton } from '@mui/material';
 import './style.scss';
 import CloudImage from './CloudImage';
 import { doc, deleteDoc } from "firebase/firestore";
@@ -28,15 +28,16 @@ const ImageGrid = ({ setSelectedImg, imgList, setImgList }) => {
       }}
     >
       {imgList.length > 0 && imgList.map((image, i) => (
-        <div className="img-wrap" key={image.cloudId} >
+        <Card className="img-wrap" key={image.cloudId} elevation={8}>
           <IconButton onClick={e => handleDelete(image.id)} sx={{position:"absolute", top:0, right:0}}>
             <DeleteForeverIcon color="black" sx={{ fontSize: "15px"}}/>
           </IconButton>
 
-          <div onClick={ e => setSelectedImg(image.cloudId) } >
+  
+          <div onClick={ e => setSelectedImg(image.cloudId) }>
             <CloudImage id={`${image.cloudId}`} key={image.cloudId} lazy={i > 9}/>
           </div>
-        </div>
+        </Card>
       ))}
     </Box>
   )
