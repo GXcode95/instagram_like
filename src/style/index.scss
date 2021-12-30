@@ -1,11 +1,10 @@
 body{
   font-family: "Noto Serif";
-  color: #4e4e4e;
 }
 a {
   text-decoration: none;
   color: rgba(248, 130, 219, 0.7);
-}
-a:hover {
-  color: rgba(247, 169, 53, 0.7);
+  &:hover {
+    color: rgba(247, 169, 53, 0.7);
+  }
 }
