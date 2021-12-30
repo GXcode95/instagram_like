@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion';
 import { Image } from 'cloudinary-react'
 import './style.scss'
 const Modal = ({selectedImg, setSelectedImg}) => {
@@ -14,6 +13,7 @@ const Modal = ({selectedImg, setSelectedImg}) => {
        <Image
         cloudName={process.env.REACT_APP_CLOUD_NAME}
         publicId={selectedImg}
+        loading="lazy"
       />
     </div>
   )

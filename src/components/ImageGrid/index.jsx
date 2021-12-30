@@ -2,7 +2,6 @@ import React from 'react';
 import { Box } from '@mui/material';
 import './style.scss';
 import CloudImage from './CloudImage';
-import { motion } from 'framer-motion'
 
 const ImageGrid = ({ setSelectedImg, imgList }) => {
   
@@ -18,13 +17,13 @@ const ImageGrid = ({ setSelectedImg, imgList }) => {
         mt: 3
       }}
     >
-      {imgList.length > 0 && imgList.map((image) => (
+      {imgList.length > 0 && imgList.map((image, i) => (
         <div 
           key={image.cloudId}
           className="img-wrap"
           onClick={ e => setSelectedImg(image.cloudId) }
         >
-          <CloudImage id={`${image.cloudId}`} key={image.cloudId} />
+          <CloudImage id={`${image.cloudId}`} key={image.cloudId} lazy={i > 9}/>
         </div>
       ))}
       <CloudImage />
