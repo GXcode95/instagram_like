@@ -23,9 +23,20 @@ const Home = () => {
     <Container style={{maxWidth: "90%" }}> 
       <Github />
       <Header />
-      <ImageUploadFormCloudinary setImgList={setImgList} imgList={imgList}/>
-      <ImageGrid setSelectedImg={setSelectedImg} imgList={imgList} />
-      {selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg}/> }
+
+      <ImageUploadFormCloudinary 
+        setImgList={setImgList} 
+        imgList={imgList} 
+      />
+      <ImageGrid 
+        setSelectedImg={setSelectedImg}
+        imgList={imgList} 
+        setImgList={setImgList} 
+      />
+      
+      {selectedImg && 
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg}/>
+      }
     </Container>
   )
 }

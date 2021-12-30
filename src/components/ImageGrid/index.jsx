@@ -1,10 +1,20 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import './style.scss';
 import CloudImage from './CloudImage';
+import { doc, deleteDoc } from "firebase/firestore";
+import { projectFirestore } from 'config/firebase';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-const ImageGrid = ({ setSelectedImg, imgList }) => {
-  
+const ImageGrid = ({ setSelectedImg, imgList, setImgList }) => {
+
+  const handleDelete = async (id) => {
+    if(window.confirm("Supprimer l'image ?")) {
+      await deleteDoc(doc(projectFirestore, "gallery", id))
+      const tmpList = imgList.filter(image => image.id != id )
+      setImgList(tmpList)
+    }
+  }
 
   return (
     <Box 
@@ -18,33 +28,18 @@ const ImageGrid = ({ setSelectedImg, imgList }) => {
       }}
     >
       {imgList.length > 0 && imgList.map((image, i) => (
-        <div 
-          key={image.cloudId}
-          className="img-wrap"
-          onClick={ e => setSelectedImg(image.cloudId) }
-        >
-          <CloudImage id={`${image.cloudId}`} key={image.cloudId} lazy={i > 9}/>
+        <div className="img-wrap" key={image.cloudId} >
+          <IconButton onClick={e => handleDelete(image.id)} sx={{position:"absolute", top:0, right:0}}>
+            <DeleteForeverIcon color="black" sx={{ fontSize: "15px"}}/>
+          </IconButton>
+
+          <div onClick={ e => setSelectedImg(image.cloudId) } >
+            <CloudImage id={`${image.cloudId}`} key={image.cloudId} lazy={i > 9}/>
+          </div>
         </div>
       ))}
-      <CloudImage />
     </Box>
   )
 
 }
 export default ImageGrid
-
-{/* 
-  
-  <div className="img-grid">
-    {docs && docs.map( doc => (
-      <motion.div 
-      className="img-wrap" 
-        key={doc.id}
-        onClick={ e => setSelectedImg(doc.url)}
-        >
-        <img src={doc.url} alt="gallery item" width="500" height="500" />
-      </motion.div>
-    ))}
-  </div>  
-
-*/}

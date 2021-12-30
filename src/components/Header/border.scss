@@ -4,11 +4,13 @@ $color2: rgb(255, 218, 170);
 $bgcolor: #fff;
 $textcolor: rgb(255, 193, 239);
 $borderSize: 5%;
+
 .rotato-wrap {
     position: relative;
     height: $size;
     width: $size;
 }
+
 @keyframes rotate{
     100%{
         transform: rotate(360deg);
